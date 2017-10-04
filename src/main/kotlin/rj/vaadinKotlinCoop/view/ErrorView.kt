@@ -13,12 +13,12 @@ import com.vaadin.ui.UI
 @SpringView
 class ErrorView : View {
 
-    // this will not be displayed, all we have to do is redirect to main screen
+    // this will not be displayed, but view requires a component
     override fun getViewComponent(): Component {
-        return Label("errorView")
+        return Label()
     }
 
     override fun enter(event: ViewChangeListener.ViewChangeEvent) {
-        UI.getCurrent().navigator.navigateTo(TestView.VIEW_NAME)
+        UI.getCurrent().navigator.navigateTo(MenuView.VIEW_NAME)
     }
 }

@@ -34,6 +34,12 @@ repositories {
     mavenCentral()
 }
 
+// in order to use Java and Kotlin in the same source sets:
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+    main.kotlin.srcDirs = ['src/main/java', 'src/main/kotlin']
+    main.resources.srcDirs = ['src/main/resources']
+}
 
 ext {
     vaadinVersion = '8.1.0'

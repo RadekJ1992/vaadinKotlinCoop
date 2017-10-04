@@ -11,6 +11,7 @@ import rj.vaadinKotlinCoop.entity.Balance
 import rj.vaadinKotlinCoop.service.AccountService
 import rj.vaadinKotlinCoop.service.BalanceService
 import rj.vaadinKotlinCoop.view.MainView
+import rj.vaadinKotlinCoop.view.error_handler.ErrorHandler
 import java.math.BigDecimal
 import java.util.*
 import javax.inject.Inject
@@ -31,6 +32,8 @@ class VaadinKotlinUI : UI() {
 
     override fun init(request: VaadinRequest?) {
         content = MainView(springNavigator)
+        // Here we have an example of Java-Kotlin interop - ErrorHandler is written in Java
+        errorHandler = ErrorHandler()
 
         // make sure DB is clean - we don't have to do it again
         if (accountService.getAccountsCount() == 0L && balanceService.getBalancesCount() == 0L) {
