@@ -1,0 +1,40 @@
+logging:
+  file: application.log
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  application:
+    name: Vaadin - Kotlin Coop
+  profiles:
+    active: prod
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  mvc:
+      locale: pl_PL
+  datasource:
+    url: jdbc:mysql://localhost:3306/vaadin_kotlin_coop?useSSL=false
+    username: vaadinKotlin
+    password: 1qaz@WSX
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      naming:
+        strategy: org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy
+      ddl-auto: create-drop
+
+entitymanager:
+  packages:
+    to:
+      scan:
+        source: com.deloitte.ctax.source
+vaadin:
+  servlet:
+    productionMode: true
+    heartbeatInterval: 300
+    closeIdleSessions: false
